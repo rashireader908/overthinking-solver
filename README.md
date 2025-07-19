@@ -1,7 +1,5 @@
 # Mindful Journey - AI-Powered Mindfulness App
 
-A cutting-edge mindfulness application built with React, Express.js, and Google Gemini AI. Features include intelligent thought analysis, draggable AI chat, breathing exercises, mood tracking, and comprehensive accessibility features. Perfect for hackathon demonstrations and real-world mindfulness practice.
-
 ## Key Features
 
 ### AI-Powered Thought Analysis
