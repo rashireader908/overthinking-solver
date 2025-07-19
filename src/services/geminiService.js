@@ -1,8 +1,9 @@
 // Enhanced Google Gemini API Service for Mindfulness App
 // Provides comprehensive AI analysis for thought logging
-
-// DO NOT include real API keys in this file
-// Keys are stored in .env and are ignored from git
+//
+// SECURITY: DO NOT include real API keys in this file
+// API keys are stored in .env file and are ignored from git
+// Always use environment variables for sensitive data
 const GEMINI_API_KEY = process.env.REACT_APP_GEMINI_API_KEY || 'YOUR_GEMINI_API_KEY';
 const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
 
