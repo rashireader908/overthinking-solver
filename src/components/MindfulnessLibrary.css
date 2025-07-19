@@ -1,0 +1,537 @@
+/* Mindfulness Library Component */
+.mindfulness-library-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.mindfulness-library-modal {
+  background: white;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.library-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.library-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.library-title h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Controls */
+.library-controls {
+  padding: 20px 24px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.search-container {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.search-container svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #64748b;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 12px 12px 40px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  background: white;
+  transition: border-color 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.category-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.category-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: white;
+  color: #64748b;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.category-btn:hover {
+  border-color: #3b82f6;
+  color: #3b82f6;
+}
+
+.category-btn.active {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: white;
+}
+
+/* Techniques Container */
+.techniques-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 24px;
+}
+
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+  color: #64748b;
+}
+
+.no-results svg {
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.no-results h3 {
+  margin: 0 0 8px 0;
+  color: #475569;
+  font-size: 1.1rem;
+}
+
+.no-results p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.techniques-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+/* Technique Cards */
+.technique-card-library {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.technique-card-library:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+}
+
+.technique-card-header {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.technique-info {
+  flex: 1;
+}
+
+.technique-info h3 {
+  margin: 0 0 8px 0;
+  color: #1e293b;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.technique-info p {
+  margin: 0 0 12px 0;
+  color: #64748b;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.technique-meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.technique-category {
+  background: #f1f5f9;
+  color: #475569;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.technique-duration {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #64748b;
+  font-size: 0.75rem;
+}
+
+.technique-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.favorite-btn,
+.expand-btn {
+  background: none;
+  border: none;
+  padding: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #64748b;
+}
+
+.favorite-btn:hover,
+.expand-btn:hover {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.favorite-btn.favorited {
+  color: #f59e0b;
+}
+
+.favorite-btn.favorited:hover {
+  color: #d97706;
+}
+
+/* Technique Details */
+.technique-details {
+  padding: 0 16px 16px 16px;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+}
+
+.technique-steps-detailed,
+.technique-tips {
+  margin-bottom: 16px;
+}
+
+.technique-steps-detailed h4,
+.technique-tips h4 {
+  margin: 0 0 8px 0;
+  color: #1e293b;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.technique-steps-detailed ol {
+  margin: 0;
+  padding-left: 16px;
+}
+
+.technique-steps-detailed li {
+  color: #475569;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.technique-tips ul {
+  margin: 0;
+  padding-left: 16px;
+}
+
+.technique-tips li {
+  color: #64748b;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.technique-actions-bottom {
+  display: flex;
+  justify-content: center;
+}
+
+.practice-btn {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.practice-btn:hover {
+  background: #2563eb;
+}
+
+/* Footer */
+.library-footer {
+  padding: 16px 24px;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+}
+
+.footer-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+.favorites-count {
+  color: #f59e0b;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mindfulness-library-overlay {
+    padding: 10px;
+  }
+  
+  .mindfulness-library-modal {
+    max-height: 95vh;
+  }
+  
+  .library-header {
+    padding: 16px 20px;
+  }
+  
+  .library-title h2 {
+    font-size: 1.1rem;
+  }
+  
+  .library-controls {
+    padding: 16px 20px;
+  }
+  
+  .category-filters {
+    gap: 6px;
+  }
+  
+  .category-btn {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+  }
+  
+  .techniques-container {
+    padding: 16px 20px;
+  }
+  
+  .techniques-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .technique-card-header {
+    padding: 12px;
+  }
+  
+  .technique-details {
+    padding: 0 12px 12px 12px;
+  }
+  
+  .library-footer {
+    padding: 12px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .library-header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  
+  .close-btn {
+    align-self: flex-end;
+  }
+  
+  .category-filters {
+    justify-content: center;
+  }
+  
+  .technique-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .technique-actions {
+    align-self: flex-end;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .mindfulness-library-modal {
+    background: #1e293b;
+  }
+  
+  .library-header {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+  }
+  
+  .library-controls {
+    background: #334155;
+    border-color: #475569;
+  }
+  
+  .search-input {
+    background: #475569;
+    border-color: #64748b;
+    color: #f1f5f9;
+  }
+  
+  .search-input:focus {
+    border-color: #3b82f6;
+  }
+  
+  .category-btn {
+    background: #475569;
+    border-color: #64748b;
+    color: #cbd5e1;
+  }
+  
+  .category-btn:hover {
+    border-color: #3b82f6;
+    color: #93c5fd;
+  }
+  
+  .category-btn.active {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    color: white;
+  }
+  
+  .techniques-container {
+    background: #334155;
+  }
+  
+  .technique-card-library {
+    background: #475569;
+    border-color: #64748b;
+  }
+  
+  .technique-card-library:hover {
+    border-color: #3b82f6;
+  }
+  
+  .technique-info h3 {
+    color: #f1f5f9;
+  }
+  
+  .technique-info p {
+    color: #cbd5e1;
+  }
+  
+  .technique-category {
+    background: #64748b;
+    color: #e2e8f0;
+  }
+  
+  .technique-duration {
+    color: #cbd5e1;
+  }
+  
+  .favorite-btn,
+  .expand-btn {
+    color: #cbd5e1;
+  }
+  
+  .favorite-btn:hover,
+  .expand-btn:hover {
+    background: #64748b;
+    color: #f1f5f9;
+  }
+  
+  .technique-details {
+    background: #334155;
+    border-color: #475569;
+  }
+  
+  .technique-steps-detailed h4,
+  .technique-tips h4 {
+    color: #f1f5f9;
+  }
+  
+  .technique-steps-detailed li {
+    color: #cbd5e1;
+  }
+  
+  .technique-tips li {
+    color: #94a3b8;
+  }
+  
+  .library-footer {
+    background: #334155;
+    border-color: #475569;
+  }
+  
+  .footer-stats {
+    color: #cbd5e1;
+  }
+} 

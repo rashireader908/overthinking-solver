@@ -1,0 +1,19 @@
+.particle-background {
+  opacity: 0.6;
+  filter: blur(0.5px);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Reduce particle count on mobile for performance */
+@media (max-width: 768px) {
+  .particle-background {
+    opacity: 0.4;
+  }
+}
+
+@media (max-width: 480px) {
+  .particle-background {
+    opacity: 0.3;
+  }
+} 
